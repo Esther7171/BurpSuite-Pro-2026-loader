@@ -24,16 +24,75 @@ The repository follows a minimal and practical structure, prioritizing reliabili
 
 - Windows 64 bit  
 - Linux 64 bit  
-
 ---
 
 ## Setup
 
+Quick setup guide for running Burp Suite in a local lab environment. Optimized for Linux. Windows steps will be added later.
+
+---
+
+## Linux Setup
+
 ### Requirements
 
-- Java 8 or higher
+- Linux 64-bit  
+- Java 8 or higher (Java 17 or 21 recommended)  
+- Official Burp Suite JAR
 
-### Installation
+Check Java:
 
-Clone the repository:
+```
 
+java -version
+
+```
+
+---
+
+### Download Burp Suite
+
+Download the latest Burp Suite release from the official source:
+
+https://portswigger.net/burp/releases
+
+Select:
+- Burp Suite Professional  
+- JAR format  
+
+---
+
+### Workspace Setup
+
+Create a workspace:
+
+```
+
+mkdir -p /home/$USER/Documents/burp
+
+```
+
+Move the JAR file:
+
+```
+
+mv /home/$USER/Downloads/burpsuite_*.jar /home/$USER/Documents/burp/
+cd /home/$USER/Documents/burp
+
+```
+
+---
+
+### Run Burp Suite
+
+```
+java -jar burpsuite_*.jar
+```
+
+Complete initial setup as prompted.
+
+---
+
+## Windows Setup
+
+Coming soon.
