@@ -32,6 +32,33 @@ Quick setup guide for running Burp Suite in a local lab environment. Optimized f
 
 ---
 
+## Windows Setup
+
+### Requirements
+
+- Windows 64-bit  
+- Java 8 or higher (Java 17 or 21 recommended)  
+- Official Burp Suite JAR
+
+Install Java
+
+### Download Burp Suite
+
+Download the latest Burp Suite release from the official source:
+
+[https://portswigger.net/burp/releases](https://portswigger.net/burp/releases)
+
+Select:
+- Burp Suite Professional  
+- JAR format
+<div align="center">
+  <img width="1449" height="680" alt="image" src="https://github.com/user-attachments/assets/e6f59e6e-4f4d-4b46-b5fd-c4f9898668aa" />
+</div>
+
+### Download BurpLoader - Licence
+[Click here](https://github.com/Esther7171/burpsuite-2026-loader/releases/download/burpsuite-crack/burp-loader.jar)
+
+
 ## Linux Setup
 
 ### Requirements
@@ -40,12 +67,17 @@ Quick setup guide for running Burp Suite in a local lab environment. Optimized f
 - Java 8 or higher (Java 17 or 21 recommended)  
 - Official Burp Suite JAR
 
+Install Java
+
+```
+sudo apt update
+sudo apt install openjdk-21-jdk -y
+```
+
 Check Java:
 
 ```
-
 java -version
-
 ```
 
 ---
@@ -54,12 +86,23 @@ java -version
 
 Download the latest Burp Suite release from the official source:
 
-https://portswigger.net/burp/releases
+[https://portswigger.net/burp/releases](https://portswigger.net/burp/releases)
 
 Select:
 - Burp Suite Professional  
-- JAR format  
+- JAR format
+<div align="center">
+  <img width="1449" height="680" alt="image" src="https://github.com/user-attachments/assets/e6f59e6e-4f4d-4b46-b5fd-c4f9898668aa" />
+</div>
 
+
+### Download BurpLoader - Licence
+[Click here](https://github.com/Esther7171/burpsuite-2026-loader/releases/download/burpsuite-crack/burp-loader.jar)
+
+Or
+```
+wget https://github.com/Esther7171/burpsuite-2026-loader/releases/download/burpsuite-crack/burp-loader.jar
+```
 ---
 
 ### Workspace Setup
@@ -86,7 +129,7 @@ cd /home/$USER/Documents/burp
 ### Run Burp Suite
 
 ```
-java -jar burpsuite_*.jar
+java -jar burp-loader.jar
 ```
 
 Complete initial setup as prompted.
