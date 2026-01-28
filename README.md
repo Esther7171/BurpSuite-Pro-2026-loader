@@ -131,11 +131,4 @@ cd /home/$USER/Documents/burp
 ```
 java -jar burp-loader.jar
 ```
-
-Complete initial setup as prompted.
-
 ---
-
-## Windows Setup
-
-Coming soon.
