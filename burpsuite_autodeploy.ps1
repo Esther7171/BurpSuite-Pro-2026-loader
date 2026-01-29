@@ -1,63 +1,93 @@
-# ==========================================
-# Burp Suite Automated Setup Script (CLEAN)
-# Author: Deathesther7171
-# ==========================================
+# =====================================================
+# Burp Suite Full Setup Script
+# =====================================================
 
-# Speed up downloads
-Write-Host "Setting download progress to silent mode..."
 $ProgressPreference = 'SilentlyContinue'
 
-# ------------------------------------------
+# -----------------------------------------------------
 # Paths
-# ------------------------------------------
-$baseDir   = "$env:USERPROFILE\BurpSuite"
-$burpJar   = "$baseDir\burpsuite.jar"
-$batFile   = "$baseDir\Burp.bat"
-$vbsFile   = "$baseDir\Burp-Silent.vbs"
-$deskLink  = "$([Environment]::GetFolderPath('Desktop'))\BurpSuite.lnk"
+# -----------------------------------------------------
+$downloaderDir = "C:\Downloader"
+$burpDir       = "C:\burp"
+$jdkInstaller  = "$downloaderDir\jdk21.exe"
+$burpJar       = "$downloaderDir\burpsuite.jar"
+$batFile       = "$burpDir\Burp.bat"
+$desktopLink   = "$([Environment]::GetFolderPath('Desktop'))\BurpSuite.lnk"
 
-New-Item -ItemType Directory -Path $baseDir -Force | Out-Null
+# -----------------------------------------------------
+# Create Folders
+# -----------------------------------------------------
+New-Item -ItemType Directory -Path $downloaderDir -Force | Out-Null
+New-Item -ItemType Directory -Path $burpDir -Force | Out-Null
 
-# ------------------------------------------
-# Java JDK 21 Check / Install
-# ------------------------------------------
+Write-Host "[+] Downloader folder: $downloaderDir"
+Write-Host "[+] Burp folder: $burpDir"
+
+# -----------------------------------------------------
+# Download Java JDK 21 (if not installed)
+# -----------------------------------------------------
 if (-not (Get-Command java -ErrorAction SilentlyContinue)) {
-    Write-Host "`nDownloading Java JDK 21..."
-    $jdkInstaller = "$env:TEMP\jdk21.exe"
-
+    Write-Host "[+] Downloading Java JDK 21..."
     Invoke-WebRequest `
         -Uri "https://download.oracle.com/java/21/latest/jdk-21_windows-x64_bin.exe" `
         -OutFile $jdkInstaller
 
-    Write-Host "Installing Java JDK 21..."
+    Write-Host "[+] Installing Java JDK 21..."
     Start-Process $jdkInstaller "/s" -Wait
-    Remove-Item $jdkInstaller -Force
 }
 else {
-    Write-Host "`nJava already installed:"
-    java -version
+    Write-Host "[+] Java already installed"
 }
 
-# ------------------------------------------
-# Reload Environment Variables
-# ------------------------------------------
-Write-Host "`nReloading environment variables..."
-$env:Path = `
-    [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" +
-    [System.Environment]::GetEnvironmentVariable("Path","User")
-
-# ------------------------------------------
-# Download Latest Burp Suite (Official)
-# ------------------------------------------
-Write-Host "`nDownloading Burp Suite (Official Latest)..."
-
+# -----------------------------------------------------
+# Download Burp Suite (Official Latest)
+# -----------------------------------------------------
+Write-Host "[+] Downloading Burp Suite (Official)..."
 Invoke-WebRequest `
     -Uri "https://portswigger.net/burp/releases/download?product=pro&type=Jar" `
     -OutFile $burpJar
 
-# ------------------------------------------
+# -----------------------------------------------------
+# Move Files to Burp Folder
+# -----------------------------------------------------
+Write-Host "[+] Moving files to burp folder..."
+Move-Item "$downloaderDir\*" $burpDir -Force
+
+# -----------------------------------------------------
+# Set JAVA_HOME + PATH (ALL USERS)
+# -----------------------------------------------------
+$javaHome = Get-ChildItem "C:\Program Files\Java" -Directory |
+            Sort-Object Name -Descending |
+            Select-Object -First 1
+
+if ($javaHome) {
+    Write-Host "[+] Setting JAVA_HOME for all users..."
+    [Environment]::SetEnvironmentVariable(
+        "JAVA_HOME",
+        $javaHome.FullName,
+        "Machine"
+    )
+
+    Write-Host "[+] Updating PATH for all users..."
+    $machinePath = [Environment]::GetEnvironmentVariable("Path", "Machine")
+    if ($machinePath -notlike "*$($javaHome.FullName)\bin*") {
+        [Environment]::SetEnvironmentVariable(
+            "Path",
+            "$machinePath;$($javaHome.FullName)\bin",
+            "Machine"
+        )
+    }
+}
+
+# -----------------------------------------------------
+# Reload Environment (Current Session)
+# -----------------------------------------------------
+$env:JAVA_HOME = [Environment]::GetEnvironmentVariable("JAVA_HOME","Machine")
+$env:Path = [Environment]::GetEnvironmentVariable("Path","Machine")
+
+# -----------------------------------------------------
 # Create BAT Launcher
-# ------------------------------------------
+# -----------------------------------------------------
 $batContent = @"
 @echo off
 cd /d "%~dp0"
@@ -65,39 +95,24 @@ java -jar "burpsuite.jar"
 "@
 
 Set-Content -Path $batFile -Value $batContent -Encoding ASCII
-Write-Host "Burp.bat created."
+Write-Host "[+] Burp.bat created"
 
-# ------------------------------------------
-# Create Silent VBS Launcher
-# ------------------------------------------
-$vbsContent = @"
-Set WshShell = CreateObject("WScript.Shell")
-WshShell.Run chr(34) & "$batFile" & Chr(34), 0
-Set WshShell = Nothing
-"@
-
-Set-Content -Path $vbsFile -Value $vbsContent
-Write-Host "Silent VBS launcher created."
-
-# ------------------------------------------
+# -----------------------------------------------------
 # Create Desktop Shortcut
-# ------------------------------------------
+# -----------------------------------------------------
 $WshShell = New-Object -ComObject WScript.Shell
-$shortcut = $WshShell.CreateShortcut($deskLink)
+$shortcut = $WshShell.CreateShortcut($desktopLink)
 
-$shortcut.TargetPath = $vbsFile
-$shortcut.WorkingDirectory = $baseDir
+$shortcut.TargetPath = $batFile
+$shortcut.WorkingDirectory = $burpDir
 $shortcut.WindowStyle = 1
 $shortcut.Description = "Burp Suite Launcher"
 
-# Optional icon (uncomment if you have one)
-# $shortcut.IconLocation = "$baseDir\burp.ico"
-
 $shortcut.Save()
-Write-Host "Desktop shortcut created."
+Write-Host "[+] Desktop shortcut created"
 
-# ------------------------------------------
-# Launch Burp Suite
-# ------------------------------------------
-Write-Host "`nLaunching Burp Suite..."
-Start-Process $vbsFile
+# -----------------------------------------------------
+# Launch Burp
+# -----------------------------------------------------
+Write-Host "[+] Launching Burp Suite..."
+Start-Process $batFile
