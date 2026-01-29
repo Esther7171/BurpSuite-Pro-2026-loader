@@ -40,6 +40,11 @@ Quick setup guide for running Burp Suite in a local lab environment. Optimized f
 - Java 17 or 21 recommended
 - Official Burp Suite JAR
 
+```
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.\setup-burpsuite.ps1
+
+```
 Install Java
 * [Java](https://download.oracle.com/java/21/archive/jdk-21.0.9_windows-x64_bin.msi)
 
