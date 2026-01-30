@@ -156,7 +156,7 @@ On first launch, review and accept the Burp Suite license Agreement to proceed.
 
 ---
 
-#### Start Burp Suite and proceed.
+#### Setup completed successfully. Start Burp Suite and proceed.
 
 <img width="1920" height="1038" alt="image" src="https://github.com/user-attachments/assets/0befff34-a688-412f-9cd2-406a3476853e" />
 
@@ -232,6 +232,9 @@ cd /home/$USER/Documents/burp
 ```
 java -jar burp-loader.jar
 ```
+The rest of the process is the same as on Windows.
+
+Setup complete. Ensure Burp Suite is used only for authorized testing and learning purposes.
 ---
 
 
