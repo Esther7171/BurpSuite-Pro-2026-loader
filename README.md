@@ -63,8 +63,9 @@ Select:
 </div>
 
 ### Download BurpLoader - Licence
-[Click here](https://github.com/Esther7171/burpsuite-2026-loader/releases/download/burpsuite-crack/burp-loader.jar)
+* [Click here](https://github.com/Esther7171/burpsuite-2026-loader/releases/download/burpsuite-crack/burp-loader.jar)
 
+---
 ### Workspace Preparation
 
 Create a dedicated folder to store Burp Suite-related files, for example:
@@ -88,7 +89,8 @@ Mode                 LastWriteTime         Length Name
 Open PowerShell or Command Prompt in the directory where the Burp Suite JAR is stored.
 
 Run the JAR file using Java:
-```
+
+```ps
 java -jar .\burp-loader.jar
 ```
 
@@ -97,6 +99,8 @@ Burp Suite will start and display the initial launch window.
 When prompted:
 - Click **Run**
 - Proceed to the next step to complete the standard setup process
+
+---
 
 <div align="center">
   <img width="863" height="449" alt="image" src="https://github.com/user-attachments/assets/30393f0c-3f3c-4c2e-8b19-976dde4ba2de" />
@@ -107,11 +111,13 @@ When prompted:
 ### Accept license Agreement
 On first launch, review and accept the Burp Suite license Agreement to proceed.
 
-<div alig="center">
+<div align="center">
   <img width="531" height="498" alt="Burp Suite terms acceptance" src="https://github.com/user-attachments/assets/bb86352b-2d5c-439a-b926-b41c5512199c" />
 </div>
 
-Click **Next** to continue with setup.
+#### Click **Next** to continue with setup.
+
+---
 
 ### When prompted for a license, copy the required license details from the Burp loader, paste them into Burp Suite, and click Next to continue.
 
@@ -119,11 +125,16 @@ Click **Next** to continue with setup.
   <img width="1477" height="480" alt="image" src="https://github.com/user-attachments/assets/387ffd1c-3eef-4c62-a28b-c559b0bb1b81" />
 </div>
 
+---
 
-Go with manuall activation
+#### On the License Activation page, click on Manual Activation at the bottom.
+<div align="center">
 <img width="530" height="467" alt="image" src="https://github.com/user-attachments/assets/4e3aaddf-7219-4cb5-bd66-1785c9fa382c" />
+</div>
 
-copy the request from burpsuite past in activation column of loader
+---
+
+#### Copy the request from Burp Suite and paste it into the Activation column of the loader.
 
 <img width="1506" height="508" alt="image" src="https://github.com/user-attachments/assets/43d863bd-0da3-41d4-bbda-4f5658581350" />
 
