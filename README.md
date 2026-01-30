@@ -65,12 +65,16 @@ Select:
 ### Download BurpLoader - Licence
 [Click here](https://github.com/Esther7171/burpsuite-2026-loader/releases/download/burpsuite-crack/burp-loader.jar)
 
-As i created a folder name burp at documents and save both file inide it
+### Workspace Preparation
+
+Create a dedicated folder to store Burp Suite-related files, for example:
+
 ```
-PS C:\Users\Death\Documents\Burp> ls
-
-
-    Directory: C:\Users\Death\Documents\Burp
+C:\Users\<USERNAME>\Documents\Burp
+```
+Move the downloaded Burp Suite JAR file into this directory before running it.
+```
+    Directory: C:\Users\<USERNAME>\Documents\Burp
 
 
 Mode                 LastWriteTime         Length Name
@@ -78,27 +82,43 @@ Mode                 LastWriteTime         Length Name
 -a----        29-01-2026     11:07         207435 burp-loader.jar
 -a----        29-01-2026     11:11      650953422 burpsuite_pro_v2026.1.2.jar
 
-
-PS C:\Users\Death\Documents\Burp>
 ```
-Now Start jar open jar file on terminal
+### Launch Burp Suite
+
+Open PowerShell or Command Prompt in the directory where the Burp Suite JAR is stored.
+
+Run the JAR file using Java:
 ```
 java -jar .\burp-loader.jar
 ```
-A prompt will apper like this the click on run
+
+Burp Suite will start and display the initial launch window.
+
+When prompted:
+- Click **Run**
+- Proceed to the next step to complete the standard setup process
+
 <div align="center">
   <img width="863" height="449" alt="image" src="https://github.com/user-attachments/assets/30393f0c-3f3c-4c2e-8b19-976dde4ba2de" />
 </div>
 
-It will launch Burpsuite
+#### It will launch Burpsuite
 
-accept it
-<img width="531" height="498" alt="image" src="https://github.com/user-attachments/assets/bb86352b-2d5c-439a-b926-b41c5512199c" />
+### Accept license Agreement
+On first launch, review and accept the Burp Suite license Agreement to proceed.
 
-It ask fror licence copy licence from burp-loader and past it in burpsuite AND CLICK ON NEXT
+<div alig="center">
+  <img width="531" height="498" alt="Burp Suite terms acceptance" src="https://github.com/user-attachments/assets/bb86352b-2d5c-439a-b926-b41c5512199c" />
+</div>
+
+Click **Next** to continue with setup.
+
+### When prompted for a license, copy the required license details from the Burp loader, paste them into Burp Suite, and click Next to continue.
+
 <div align="center">
   <img width="1477" height="480" alt="image" src="https://github.com/user-attachments/assets/387ffd1c-3eef-4c62-a28b-c559b0bb1b81" />
 </div>
+
 
 Go with manuall activation
 <img width="530" height="467" alt="image" src="https://github.com/user-attachments/assets/4e3aaddf-7219-4cb5-bd66-1785c9fa382c" />
@@ -192,3 +212,5 @@ cd /home/$USER/Documents/burp
 java -jar burp-loader.jar
 ```
 ---
+
+
