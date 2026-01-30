@@ -136,17 +136,27 @@ On first launch, review and accept the Burp Suite license Agreement to proceed.
 
 #### Copy the request from Burp Suite and paste it into the Activation column of the loader.
 
+<div align="center">
 <img width="1506" height="508" alt="image" src="https://github.com/user-attachments/assets/43d863bd-0da3-41d4-bbda-4f5658581350" />
+</div>
 
-copy the activation response from loader past in burpsuite
+---
 
+#### Vice versa, copy the activation response from the loader and paste it into Burp Suite.
+
+<div align="center">
 <img width="1472" height="501" alt="image" src="https://github.com/user-attachments/assets/c9e010c9-9571-4b46-b2dc-3d7a14acad5d" />
+</div>
 
-That it click on finish and Enjoy burpsuite-pro
+---
+
+#### That’s it. Click Finish and enjoy Burp Suite Pro.
 
 <img width="1477" height="486" alt="image" src="https://github.com/user-attachments/assets/4a0da270-487e-4c66-a121-c405e385cd48" />
 
-Done
+---
+
+#### Start Burp Suite and proceed.
 
 <img width="1920" height="1038" alt="image" src="https://github.com/user-attachments/assets/0befff34-a688-412f-9cd2-406a3476853e" />
 
