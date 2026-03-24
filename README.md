@@ -234,7 +234,7 @@ java -jar burp-loader.jar
 ```
 The rest of the process is the same as on Windows.
 
-### Setup complete. For legal and educational use only.Setup complete. Ensure Burp Suite is used only for authorized testing and learning purposes.
+### Setup complete. For legal and educational use only.Setup complete.
 
 ## ⭐ Thank You for the Support
 
