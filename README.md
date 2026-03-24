@@ -236,6 +236,8 @@ The rest of the process is the same as on Windows.
 
 ### Setup complete. For legal and educational use only.Setup complete.
 
+---
+
 ## ⭐ Thank You for the Support
 
 Big thanks to everyone who has starred this repo and is using this project.
