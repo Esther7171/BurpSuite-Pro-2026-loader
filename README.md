@@ -42,7 +42,7 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 ### Requirements
 
 - Windows 64-bit  
-- Java 17 or 21 recommended
+- Java 21 recommended
 - Official Burp Suite JAR
 
 
