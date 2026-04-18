@@ -47,8 +47,9 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 
 
 Install Java
-* [Java](https://download.oracle.com/java/21/archive/jdk-21.0.9_windows-x64_bin.msi)
-
+Windows
+* [Java 21](https://download.oracle.com/java/21/archive/jdk-21.0.9_windows-x64_bin.msi)
+  
 ### Download Burp Suite
 
 Download the latest Burp Suite release from the official source:
@@ -165,7 +166,7 @@ On first launch, review and accept the Burp Suite license Agreement to proceed.
 ### Requirements
 
 - Linux 64-bit  
-- Java 8 or higher (Java 17 or 21 recommended)  
+- Java 21 recommended  
 - Official Burp Suite JAR
 
 Install Java
